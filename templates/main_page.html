@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alchemist's Fire</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main_page.css') }}">
+    </head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <div id="sidebar-burger" onclick="toggleSidebar()">☰</div> <!-- Sidebar içindeki burger -->
+            Menu
+        </div>
+        <div class="sidebar-section">
+            <h3>Hits</h3>
+            <ul>
+                <li><a href="https://www.imdb.com/search/title/?title_type=feature&genres=animation" target="_blank">Popüler Filmler</a></li>
+                <li><a href="https://www.imdb.com/search/title/?title_type=tv_series&genres=animation" target="_blank">Popüler Diziler</a></li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <!-- Navbar -->
+    <header>
+        <div id="burger" onclick="toggleSidebar()">☰</div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="width: 50px;">
+        </div>
+        <div class="site-title">Alchemist's Fire</div>
+        <div class="search-bar">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Ara..." required>
+                <button type="submit">Ara</button>
+            </form>
+        </div>
+        
+        <div class="profile-icon">
+            <a href="{{ url_for('profile_page') }}">
+                <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+            </a>        
+        </div>
+    </header>
+
+    <!-- Carousel -->
+    <!-- Carousel -->
+<div class="carousel">
+    <div class="carousel-track" id="carousel-track" style="display: flex; transform: translateX(0);">
+        <!-- Görselleri buraya ekliyoruz -->
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='carousel_images/aot.jpg') }}" alt="Attack on Titan">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='carousel_images/vinland_saga.jpeg') }}" alt="Vinland Saga">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='carousel_images/delicious-in-dungeon.png') }}" alt="Delicious in Dungeon">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='carousel_images/berserk.png') }}" alt="Berserk">
+        </div>
+    </div>
+    <!-- Kaydırma butonları -->
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+    <!-- Hemen İzle Butonu -->
+    <div class="carousel-overlay">
+        <button class="watch-now" onclick="watchNow()">Hemen İzle</button>
+    </div>
+</div>
+
+
+    <!-- Posters -->
+    <div class="posters" >
+        <h2>Most Popular</h2>
+        <div id="posterContainer" class="poster-scroll-container">
+            {% for anime in animes %}
+            <div class="poster">
+                <a href="{{ url_for('content_page', id=anime['id']) }}">
+                    <div class="poster-card">
+                        {% if anime['id'] == 1 %}
+                            <img src="{{ url_for('static', filename='poster_images/dandadan.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 2 %}
+                            <img src="{{ url_for('static', filename='poster_images/violet.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 3 %}
+                            <img src="{{ url_for('static', filename='poster_images/frieren.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 4 %}
+                            <img src="{{ url_for('static', filename='poster_images/demon.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 5 %}
+                            <img src="{{ url_for('static', filename='poster_images/mushi.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 6 %}
+                            <img src="{{ url_for('static', filename='poster_images/neon.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 7 %}
+                            <img src="{{ url_for('static', filename='poster_images/death.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% elif anime['id'] == 8 %}
+                            <img src="{{ url_for('static', filename='poster_images/made.jpg') }}" alt="{{ anime['title'] }}">
+                            <p>{{ anime['title'] }}</p>
+                        {% endif %}
+                        
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='mainpage.js') }}"></script>
+
+</body>
+</html>

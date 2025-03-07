@@ -1,0 +1,249 @@
+/* Genel Ayarlar */
+body {
+    margin: 0;
+    font-family: fantasy;  /* Tüm yazılar fantasy fontuyla olacak */
+    background-color: #000000;  /* Arka plan siyah */
+    color: white;  /* Yazı rengi beyaz */
+}
+
+/* Sidebar */
+#sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #000000;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
+}
+#sidebar .sidebar-header {
+    padding: 15px;
+    font-size: 20px;
+    background: #000000;
+}
+#sidebar .sidebar-section {
+    padding: 15px;
+}
+#sidebar .sidebar-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+#sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+#sidebar ul li:hover {
+    background: #000000;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo ve yazı sola, diğer elemanları sağa yerleştir */
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgb(244, 244, 244);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+header .logo {
+    font-size: 35px;
+    margin-right: 20px; /* Logoya sağda biraz boşluk ekleyin */
+    margin-left: 20px;
+}
+header .site-title {
+    font-size: 35px;
+    text-align: left; /* Yazıyı sola hizala */
+}
+header .search-bar {
+    margin-left: auto; /* Sağ tarafa hizala */
+}
+header .search-bar input {
+    padding: 5px;
+    font-size: 16px;
+}
+header .profile-icon {
+    margin-left: 20px; /* Profil ikonuna biraz boşluk ekleyin */
+}
+header .profile-icon img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1875px; /* Maksimum genişlik */
+    height: 700px;     /* Sabit yükseklik */
+    overflow: hidden;
+    margin: 0 auto;    /* Ortala */
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.carousel-item {
+    min-width: 100%;
+    max-width: 1875px; /* Maksimum genişlik */
+    height: 700px;     /* Sabit yükseklik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.carousel-btn.prev {
+    left: 10px;
+}
+.carousel-btn.next {
+    right: 10px;
+}
+.carousel-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.carousel-overlay button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.carousel-overlay button:hover {
+    background-color: #e03e00;
+}
+
+/* Posterleri içeren ana konteyner */
+/* Posterleri içeren ana konteyner */
+.poster-container {
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center;    /* Dikeyde ortalama */
+    height: 100vh;          /* Sayfa yüksekliğine göre hizalama */
+    gap: 20px; /* Posterler arasındaki boşluk */
+    overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
+    white-space: nowrap; /* Satır kırılmasını önler */
+    padding: 20px; /* Dış kenarlardan boşluk bırakır */
+    scroll-behavior: smooth; /* Kaydırma animasyonu */
+    /* Scrollbar'ı gizle */
+    scrollbar-width: none; /* Firefox için scrollbar'ı kaldırır */
+    -ms-overflow-style: none; 
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+}
+
+.poster-container::-webkit-scrollbar {
+    display: none; /* Chrome, Edge ve Safari için scrollbar'ı gizler */
+}
+
+/* Her bir posteri kapsayan kart */
+.poster-card {
+    background: white; /* Kartın beyaz arka planı */
+    border-radius: 15px; /* Yumuşak köşeler için yuvarlatma */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+    padding: 15px; /* Kart içindeki içerikler için boşluk */
+    display: flex; /* Kart içindeki elemanları düzenler */
+    flex-direction: column; /* Görseller ve metin dikey hizalanır */
+    align-items: center; /* Elemanları merkeze hizalar */
+    width: 220px; /* Kart genişliği */
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efektleri için geçiş */
+}
+
+/* Kart hover efekti */
+.poster-card:hover {
+    transform: translateY(-10px); /* Kart yukarı doğru hareket eder */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Daha belirgin bir gölge efekti */
+}
+
+/* Kart içindeki görseller */
+.poster-card img {
+    border-radius: 10px; /* Görsellerin köşelerini yuvarlar */
+    width: 100%; /* Görseller kart genişliğine uyum sağlar */
+    height: auto;
+    margin-bottom: 10px; /* Görselin altında metin için boşluk */
+}
+
+
+/* Kart içindeki metin */
+.poster-card p {
+    font-size: 16px; /* Yazı boyutu */
+    font-weight: bold; /* Yazı kalınlığı */
+    text-align: center; /* Metni ortalar */
+    color: #333; /* Yazı rengi */
+    margin: 0; /* Varsayılan boşlukları kaldırır */
+}
+
+
+.chef-recommendation-card {
+    display: flex;
+    max-width: 1080px;
+    margin: 20px auto;
+    background: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.poster {
+    flex: 1;
+    max-width: 33%;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2em;
+    margin: 0 0 15px;
+    color: white;  /* Başlıklar beyaz olacak */
+}
+
+.summary {
+    font-size: 1.5em;
+    margin: 0;
+    color: white;  /* Yazı rengi beyaz olacak */
+    line-height: 1.5;
+}

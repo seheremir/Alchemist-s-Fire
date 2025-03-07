@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("your-image-path.jpg"); /* Arka plan resmi */
+    background-size: cover; /* Resmi tamamen kapla */
+    background-position: center; /* Resmi ortala */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;  /* Kart genişliğini artırdık */
+    max-width: 1000px;  /* Maksimum genişliği artırdık */
+    background-color: rgba(255, 255, 255, 0.8); /* Şeffaf kart */
+    backdrop-filter: blur(10px); /* Kartın arka planına bulanıklık ekle */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;  /* Yazıları ve resmi yan yana yerleştir */
+    gap: 20px;
+    align-items: center;
+    margin: 20px;
+}
+
+.container img {
+    width: 40%;  /* Resmin genişliğini artırdık */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    width: 60%;  /* İçeriğin genişliğini arttırdık */
+}
+
+.content h1 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin: 5px 0;
+}
+
+.content h2 {
+    margin-top: 20px;
+    font-size: 1.4em;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: gray;
+}

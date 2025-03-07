@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ anime['title'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% if anime['id'] == 1 %}
+            <img src="{{ url_for('static', filename='poster_images/dandadan.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 2 %}
+            <img src="{{ url_for('static', filename='poster_images/violet.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 3 %}
+            <img src="{{ url_for('static', filename='poster_images/frieren.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 4 %}
+            <img src="{{ url_for('static', filename='poster_images/demon.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 5 %}
+            <img src="{{ url_for('static', filename='poster_images/mushi.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 6 %}
+            <img src="{{ url_for('static', filename='poster_images/neon.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 7 %}
+            <img src="{{ url_for('static', filename='poster_images/death.jpg') }}" alt="{{ anime['title'] }}">
+        {% elif anime['id'] == 8 %}
+            <img src="{{ url_for('static', filename='poster_images/made.jpg') }}" alt="{{ anime['title'] }}">
+        {% endif %}
+        <div class="content">
+            <h1>{{ anime['title'] }}</h1>
+            <p><strong>Tür:</strong> {{ anime['genre'] }}</p>
+            <p><strong>Bölüm Sayısı:</strong> {{ anime['episode_count'] }}</p>
+            <h2>Özet</h2>
+            <p>{{ anime['synopsis'] }}</p>
+        </div>
+    </div>
+</body>
+</html>

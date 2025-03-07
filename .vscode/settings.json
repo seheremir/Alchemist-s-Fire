@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Anime DB",
+            "database": "anime.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

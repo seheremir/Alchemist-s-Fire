@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("{{ url_for('static', filename='1355312.jpeg') }}");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container-wrapper {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.2); /* Arkaplan görünürlüğü için opacity ayarı */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+      backdrop-filter: blur(10px); /* Şeffaflığı destekleyen tarayıcılarda arkaplan bulanıklığı */
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.6); /* Kartların şeffaflığı */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .container:first-child {
+      width: 25%;
+    }
+    .container:last-child {
+      width: 70%;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    input, select {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .checkbox-group, .radio-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* Flash messages */
+    .flash-message {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .flash-message.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .flash-message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Giriş Yap -->
+    <div class="container">
+      <h2>Giriş Yap</h2>
+      <form method="POST">
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Şifre</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit" name="login">Giriş Yap</button>
+      </form>
+    </div>
+
+    <!-- Kayıt Ol -->
+    <div class="container">
+      <h2>Kayıt Ol</h2>
+      {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+      {% endif %}
+      {% if success_message %}
+        <p style="color: green;">{{ success_message }}</p>
+      {% endif %}
+      <form method="POST">
+        <label for="first-name">İsim</label>
+        <input type="text" id="first-name" name="first-name" required>
+        <label for="last-name">Soyisim</label>
+        <input type="text" id="last-name" name="last-name" required>
+        <label for="reg-email">E-posta</label>
+        <input type="email" id="reg-email" name="email" required>
+        <label for="reg-password">Şifre</label>
+        <input type="password" id="reg-password" name="password" required>
+        <label for="confirm-password">Şifreyi Onayla</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+  
+        <!-- Cinsiyet -->
+        <div class="checkbox-group">
+          <label>Cinsiyet:</label>
+          <label><input type="checkbox" name="gender" value="Kadın"> Kadın</label>
+          <label><input type="checkbox" name="gender" value="Erkek"> Erkek</label>
+        </div>
+  
+        <!-- Radio Button -->
+        <div class="radio-group">
+          <label>Favori animasyon tarzınız:</label>
+          <label><input type="radio" name="animation" value="2D" required> 2D Animasyon</label>
+          <label><input type="radio" name="animation" value="3D" required> 3D Animasyon</label>
+          <label><input type="radio" name="animation" value="Anime" required> Anime</label>
+        </div>
+  
+        <!-- Dropdown -->
+        <label for="preferences">Ne tür yapımlardan hoşlanırsınız?</label>
+        <select id="preferences" name="preferences" required>
+          <option value="" disabled selected>Seçiniz...</option>
+          <option value="aksiyon">Aksiyon</option>
+          <option value="macera">Macera</option>
+          <option value="komedi">Komedi</option>
+          <option value="drama">Drama</option>
+          <option value="fantezi">Fantezi</option>
+          <option value="romantik">Romantik</option>
+          <option value="bilim-kurgu">Bilim Kurgu</option>
+        </select>
+  
+        <button type="submit" name="register">Kayıt Ol</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
